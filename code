@@ -1,0 +1,94 @@
+#include <iostream>
+#include <cmath> // Include cmath library for square root function
+
+using namespace std;
+
+int main() {
+    int choice;
+    double num1, num2, result;
+
+    do {
+        cout << "Select an operation to perform a simple calculation in C++ Calculator\n"
+                "1 = Addition\n"
+                "2 = Subtraction\n"
+                "3 = Multiplication\n"
+                "4 = Division\n"
+                "5 = Square\n"
+                "6 = Square Root\n"
+                "7 = Exit\n"
+                "Make a choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                cout << "You have selected the Addition Operation.\n"
+                        "Please enter two numbers: ";
+                cin >> num1 >> num2;
+                result = num1 + num2;
+                cout << "Sum of the two numbers = " << result << endl;
+                break;
+
+            case 2:
+                cout << "You have selected the Subtraction Operation.\n"
+                        "Please enter two numbers: ";
+                cin >> num1 >> num2;
+                result = num1 - num2;
+                cout << "Difference of the two numbers = " << result << endl;
+                break;
+
+            case 3:
+                cout << "You have selected the Multiplication Operation.\n"
+                        "Please enter two numbers: ";
+                cin >> num1 >> num2;
+                result = num1 * num2;
+                cout << "Product of the two numbers = " << result << endl;
+                break;
+
+            case 4:
+                cout << "You have selected the Division Operation.\n"
+                        "Please enter two numbers: ";
+                cin >> num1 >> num2;
+                while (num2 == 0) {
+                    cout << "Error: Division by zero is not allowed.\n"
+                            "Please enter the divisor again: ";
+                    cin >> num2;
+                }
+                result = num1 / num2;
+                cout << "Quotient of the division = " << result << endl;
+                break;
+
+            case 5:
+                cout << "You have selected the Square Operation.\n"
+                        "Please enter a number: ";
+                cin >> num1;
+                result = num1 * num1;
+                cout << "Square of the number = " << result << endl;
+                break;
+
+            case 6:
+                cout << "You have selected the Square Root Operation.\n"
+                        "Please enter a number: ";
+                cin >> num1;
+                while (num1 < 0) {
+                    cout << "Error: Square root of a negative number is not defined.\n"
+                            "Please enter a non-negative number: ";
+                    cin >> num1;
+                }
+                result = sqrt(num1);
+                cout << "Square root of the number = " << result << endl;
+                break;
+
+            case 7:
+                cout << "Exiting the program. Goodbye!\n";
+                break;
+
+            default:
+                cout << "Invalid choice. Please enter a number between 1 and 7.\n";
+                break;
+        }
+
+        cout << "-----------------------------------------\n";
+    } while (choice != 7);
+
+    return 0;
+}
